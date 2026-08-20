@@ -177,7 +177,7 @@ const dict = {
       desc: "Available for consulting, new project collaborations, or full-time opportunities. Reach out via the links below.",
     },
     footer: {
-      designedBy: "Designed & Built by",
+      designedBy: "",
       backToTop: "Back to Top"
     }
   },
@@ -301,7 +301,7 @@ const dict = {
       desc: "برای مشاوره، همکاری در پروژه‌های جدید و یا استخدام، از طریق راه‌های زیر پاسخگوی شما هستم.",
     },
     footer: {
-      designedBy: "طراحی و توسعه با ❤️ توسط",
+      designedBy: "",
       backToTop: "بازگشت به بالا"
     }
   }
