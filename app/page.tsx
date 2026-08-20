@@ -19,12 +19,12 @@ import {
   MapPin,
   GraduationCap
 } from 'lucide-react';
+
 // Imports from react-icons
 import { 
   SiJavascript, 
   SiTypescript, 
   SiHtml5, 
-  //SiCss3, 
   SiReact, 
   SiNextdotjs, 
   SiTailwindcss, 
@@ -34,12 +34,17 @@ import {
   SiGithub, 
   SiXampp, 
   //SiAdobephotoshop, 
+  //SiAdobeillustrator,
   SiPython, 
   SiCplusplus, 
   SiAndroidstudio,
   SiWordpress,
   SiElementor,
-  SiWoocommerce
+  SiWoocommerce,
+  SiYoast,
+  SiGoogleanalytics,
+  SiGooglesearchconsole,
+  SiMysql
 } from "react-icons/si";
 
 // --- Global Static Links ---
@@ -51,7 +56,6 @@ const GLOBAL_LINKS = {
 };
 
 // --- Dictionary for Localization ---
-// مهم: تمام کلیدهای بخش en و fa باید دقیقاً شبیه به هم باشند
 const dict = {
   en: {
     personal: {
@@ -73,7 +77,7 @@ const dict = {
     about: {
       title: "About Me",
       p1: "I am a Front-End Developer who thinks beyond just coding.",
-      p2: "My journey in the web world started 4 years ago by combining art and logic. To me, web development isn't just writing JavaScript or styling; it's creating a smooth, fast, and efficient experience for the end user while meeting the project's business goals.",
+      p2: "My journey in the web world started 6 years ago by combining art and logic. To me, web development isn't just writing JavaScript or styling; it's creating a smooth, fast, and efficient experience for the end user while meeting the project's business goals.",
       p3: "My core expertise lies in the React and Next.js ecosystem, but what sets me apart is my holistic view of a product. My mastery of Technical SEO allows me to architect page structures and performance (Core Web Vitals) from the ground up so that the product ranks powerfully in search engines.",
       p4: "I'm passionate about clean code, component-based architectures, and solving complex challenges. I am also currently a senior computer engineering student at the University of Tabriz.",
       eduTitle: "Education",
@@ -82,14 +86,14 @@ const dict = {
     skills: {
       title: "Skills & Tools",
       categories: [
-        { title: "Core Languages", items: ["JavaScript", "TypeScript", "HTML5", "CSS3"] },
+        { title: "Core Languages", items: ["JavaScript", "TypeScript", "HTML5", "CSS3", "SQL (Beginner)"] },
         { title: "Frameworks & Libraries", items: ["React.js", "Next.js"] },
-        { title: "CMS & E-Commerce", items: ["WordPress", "Elementor", "WooCommerce"] },
+        { title: "CMS & E-Commerce", items: ["WordPress", "Elementor", "WooCommerce", "Yoast SEO", "Rank Math"] },
+        { title: "SEO & Analytics", items: ["Technical SEO", "Google Analytics", "Search Console"] },
         { title: "UI & Styling", items: ["Tailwind CSS", "Bootstrap", "Material UI"] },
-        { title: "Dev Tools", items: ["XAMPP"] },
-        { title: "Version Control", items: ["Git", "GitHub"] },
-        { title: "Design & Graphics", items: ["Photoshop"] },
-        { title: "Other Skills", items: ["Python (Basic)", "C++ (Basic)", "Android Studio (Basic)"] },
+        { title: "Dev Tools & Version Control", items: ["XAMPP", "MySQL (Beginner)", "Git", "GitHub"] },
+        { title: "Design & Graphics", items: ["Photoshop", "Adobe Illustrator", "UI Layout Design"] },
+        { title: "Other Skills", items: ["Python (Beginner)", "C++ (Beginner)", "Android Studio (Beginner)"] },
       ]
     },
     projects: {
@@ -197,7 +201,7 @@ const dict = {
     about: {
       title: "درباره من",
       p1: "من یک توسعه‌دهنده فرانت‌اند هستم که به فراتر از کدنویسی صرف فکر می‌کنم.",
-      p2: "مسیر من در دنیای وب از ۴ سال پیش با ترکیب هنر و منطق آغاز شد. برای من، توسعه وب فقط نوشتن کدهای جاوااسکریپت یا استایل‌دهی نیست؛ بلکه خلق تجربه‌ای روان، سریع و کارآمد برای کاربر نهایی است که در عین حال اهداف تجاری پروژه را نیز برآورده کند.",
+      p2: "مسیر من در دنیای وب از ۶ سال پیش با ترکیب هنر و منطق آغاز شد. برای من، توسعه وب فقط نوشتن کدهای جاوااسکریپت یا استایل‌دهی نیست؛ بلکه خلق تجربه‌ای روان، سریع و کارآمد برای کاربر نهایی است که در عین حال اهداف تجاری پروژه را نیز برآورده کند.",
       p3: "تخصص اصلی من در اکوسیستم React و Next.js است، اما تفاوت من در داشتن دیدگاهی جامع به محصول است. تسلط من بر سئو تکنیکال (Technical SEO) به من این امکان را می‌دهد که ساختار صفحات و پرفورمنس را از پایه به گونه‌ای معماری کنم که محصول در موتورهای جستجو قدرتمند ظاهر شود.",
       p4: "من به کدنویسی تمیز، استفاده از معماری‌های مقیاس‌پذیر و حل چالش‌های پیچیده علاقه‌مندم. همچنین دانشجوی سال آخر کارشناسی مهندسی کامپیوتر در دانشگاه تبریز هستم.",
       eduTitle: "تحصیلات",
@@ -206,13 +210,13 @@ const dict = {
     skills: {
       title: "مهارت‌ها و ابزارها",
       categories: [
-        { title: "زبان‌های پایه", items: ["JavaScript", "TypeScript", "HTML5", "CSS3"] },
+        { title: "زبان‌های پایه", items: ["JavaScript", "TypeScript", "HTML5", "CSS3", "SQL (مبتدی)"] },
         { title: "فریم‌ورک‌ها و کتابخانه‌ها", items: ["React.js", "Next.js"] },
-        { title: "سیستم‌های مدیریت محتوا (CMS)", items: ["WordPress", "Elementor", "WooCommerce"] },
+        { title: "سیستم‌های مدیریت محتوا (CMS)", items: ["WordPress", "Elementor", "WooCommerce", "Yoast SEO", "Rank Math"] },
+        { title: "سئو و آنالیتیکس", items: ["Technical SEO", "Google Analytics", "Search Console"] },
         { title: "رابط کاربری و استایل‌دهی", items: ["Tailwind CSS", "Bootstrap", "Material UI"] },
-        { title: "ابزارهای توسعه", items: ["XAMPP"] },
-        { title: "کنترل نسخه و کار تیمی", items: ["Git", "GitHub"] },
-        { title: "طراحی و گرافیک", items: ["Photoshop"] },
+        { title: "ابزارهای توسعه و کنترل نسخه", items: ["XAMPP", "MySQL (مبتدی)", "Git", "GitHub"] },
+        { title: "طراحی و گرافیک", items: ["Photoshop", "Adobe Illustrator", "UI Layout Design"] },
         { title: "سایر مهارت‌ها", items: ["Python (مبتدی)", "C++ (مبتدی)", "Android Studio (مبتدی)"] },
       ]
     },
@@ -321,30 +325,34 @@ const TECH_STACKS = {
   dollerx: ["Next.js", "React", "Node.js", "PDF Generation"]
 };
 
-// Skill Icons mapping
+// Skill Icons mapping (Now works perfectly with base name extraction)
 const getSkillIcon = (name: string) => {
   switch(name) {
     case "JavaScript": return <SiJavascript className="text-[#F7DF1E] text-lg bg-black" />;
     case "TypeScript": return <SiTypescript className="text-[#3178C6] text-lg bg-white" />;
     case "HTML5": return <SiHtml5 className="text-[#E34F26] text-lg" />;
-    //case "CSS3": return <SiCss3 className="text-[#1572B6] text-lg" />;
     case "React.js": return <SiReact className="text-[#61DAFB] text-lg" />;
     case "Next.js": return <SiNextdotjs className="text-white bg-black rounded-full text-lg" />;
     case "WordPress": return <SiWordpress className="text-[#0081e4] text-xl" />;
     case "Elementor": return <SiElementor className="text-[#c5074d] text-lg" />;
     case "WooCommerce": return <SiWoocommerce className="text-[#d728b4] text-xl" />;
+    case "Yoast SEO": return <SiYoast className="text-[#A4286A] text-lg bg-white rounded-sm p-[1px]" />;
+    case "Google Analytics": return <SiGoogleanalytics className="text-[#E37400] text-lg" />;
+    case "Search Console": return <SiGooglesearchconsole className="text-[#4285F4] text-lg" />;
+    case "SQL":
+    case "MySQL": return <SiMysql className="text-[#4479A1] text-xl" />;
     case "Tailwind CSS": return <SiTailwindcss className="text-[#06B6D4] text-lg" />;
     case "Bootstrap": return <SiBootstrap className="text-[#7952B3] text-lg" />;
     case "Material UI": return <SiMui className="text-[#007FFF] text-lg" />;
     case "XAMPP": return <SiXampp className="text-[#FB7A24] text-lg" />;
     case "Git": return <SiGit className="text-[#F05032] text-lg" />;
     case "GitHub": return <SiGithub className="text-white text-lg" />;
-    //case "Photoshop": return <SiAdobephotoshop className="text-[#31A8FF] text-lg bg-[#001D26] rounded-sm" />;
-    default:
-      if (name.includes("Python")) return <SiPython className="text-[#3776AB] text-lg" />;
-      if (name.includes("C++")) return <SiCplusplus className="text-[#00599C] text-lg" />;
-      if (name.includes("Android")) return <SiAndroidstudio className="text-[#3DDC84] text-lg" />;
-      return null;
+    //case "Photoshop": return <SiAdobephotoshop className="text-[#31A8FF] text-lg bg-[#001D26] rounded-sm p-[1px]" />;
+    //case "Adobe Illustrator": return <SiAdobeillustrator className="text-[#FF9A00] text-lg bg-[#330000] rounded-sm p-[1px]" />;
+    case "Python": return <SiPython className="text-[#3776AB] text-lg" />;
+    case "C++": return <SiCplusplus className="text-[#00599C] text-lg" />;
+    case "Android Studio": return <SiAndroidstudio className="text-[#3DDC84] text-lg" />;
+    default: return null;
   }
 };
 
@@ -627,21 +635,33 @@ export default function Portfolio() {
                       <h3 className="text-xl font-bold text-slate-100 mb-6 relative z-10">{category.title}</h3>
                       
                       <div className="flex flex-wrap gap-3 relative z-10">
-                        {category.items.map((skillName) => {
+                        {category.items.map((skillString) => {
+                           // استخراج کردن کلمه اصلی و سطح مهارت (کلمه داخل پرانتز)
+                           const hasLevel = skillString.includes('(');
+                           const skillName = hasLevel ? skillString.substring(0, skillString.indexOf('(')).trim() : skillString;
+                           const skillLevel = hasLevel ? skillString.substring(skillString.indexOf('(')) : "";
                            const icon = getSkillIcon(skillName);
+                           
                            return (
                             <div
-                              key={skillName}
-                              className="flex items-center gap-3 px-4 py-2 rounded-full bg-[#181E2D] border border-slate-700/50 hover:border-slate-500/80 transition-colors cursor-default shadow-none"
+                              key={skillString}
+                              className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#181E2D] border border-slate-700/50 hover:border-slate-500/80 transition-colors cursor-default shadow-none"
                             >
                               {icon && (
                                 <div className="flex items-center justify-center w-5 h-5">
                                   {icon}
                                 </div>
                               )}
-                              <span className="text-sm font-bold tracking-wide text-slate-300">
-                                {skillName}
-                              </span>
+                              <div className="flex items-baseline gap-1.5">
+                                <span className="text-sm font-bold tracking-wide text-slate-300">
+                                  {skillName}
+                                </span>
+                                {skillLevel && (
+                                  <span className="text-[11px] font-medium text-emerald-400/70 tracking-wider">
+                                    {skillLevel}
+                                  </span>
+                                )}
+                              </div>
                             </div>
                            )
                         })}
