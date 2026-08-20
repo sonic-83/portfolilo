@@ -585,7 +585,7 @@ export default function Portfolio() {
                   </p>
                   <p className="font-medium text-justify">{currentDict.about.p2}</p>
                   <p className="font-medium text-justify">{currentDict.about.p3}</p>
-                  <p className="font-medium text-justify">{currentDict.about.p4}</p>
+                  {/*<p className="font-medium text-justify">{currentDict.about.p4}</p>*/}
                   
                   {/* Restored Education and Location Cards */}
                   <div className="grid md:grid-cols-2 gap-4 mt-8 pt-4">
